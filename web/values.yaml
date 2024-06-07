@@ -1,0 +1,25 @@
+replicaCount: 1
+image:
+  repository: hieubeo2369/web
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  type: NodePort
+  port: 3000
+  nodePort: 30001
+env:
+  REACT_APP_API_URL: http://192.168.49.2:30002/
+ingress:
+  enabled: false
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+serviceAccount:
+  create: true
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
