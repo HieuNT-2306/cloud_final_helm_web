@@ -20,7 +20,7 @@ spec:
           ports:
             - containerPort: 3000
           env:
-            - name: REACT_APP_API_URL
+            - name: 
               value: "http://$(NODE_IP):{{ .Values.service.apiPort }}/"
             - name: NODE_IP
               valueFrom:
