@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ include "web.fullname" . }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -9,4 +9,4 @@ spec:
       targetPort: 3000
       nodePort: {{ .Values.service.nodePort }}
   selector:
-    app: {{ .Release.Name }}
+    app: {{ include "web.fullname" . }}
