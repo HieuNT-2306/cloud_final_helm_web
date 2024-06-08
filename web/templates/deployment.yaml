@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-web
   labels:
-    app: {{ .Release.Name }}
+    app: {{ .Release.Name }}-web
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ .Release.Name }}-web
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: {{ .Release.Name }}-web
     spec:
       containers:
         - name: web
@@ -20,8 +20,9 @@ spec:
           ports:
             - containerPort: 3000
           env:
-            - name: 
-              value: "http://$(NODE_IP):{{ .Values.service.apiPort }}/"
+            - name: REACT_APP_API_URL
+              #value: "http://$(NODE_IP):{{ .Values.service.apiPort }}/"
+              value: "http://{{ .Values.service.apiServiceName }}:{{ .Values.service.apiPort }}/"
             - name: NODE_IP
               valueFrom:
                 fieldRef:

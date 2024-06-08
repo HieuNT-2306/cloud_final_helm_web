@@ -8,6 +8,7 @@ service:
   port: 3000
   nodePort: 30001
   apiPort: 30002
+  apiServiceName: vdt-app-api
 ingress:
   enabled: false
 resources: {}
