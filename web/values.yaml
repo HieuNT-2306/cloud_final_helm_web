@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: hieubeo2369/web
-  tag: v1.0.0-released-web
+  tag: v1.0.1-dev-web
   pullPolicy: IfNotPresent
 service:
   type: NodePort
