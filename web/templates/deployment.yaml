@@ -16,13 +16,9 @@ spec:
     spec:
       containers:
         - name: web
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: 3000
           env:
             - name: REACT_APP_API_URL
-              value: "http://192.168.49.2:{{ .Values.service.apiPort }}"
-            - name: NODE_IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.hostIP
+              value: http://192.168.49.2:{{ .Values.service.apiPort }}
