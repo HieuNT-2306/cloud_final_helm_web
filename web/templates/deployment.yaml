@@ -21,8 +21,7 @@ spec:
             - containerPort: 3000
           env:
             - name: REACT_APP_API_URL
-              value: "http://$(NODE_IP):{{ .Values.service.apiPort }}/"
-              #value: http://{{ .Values.service.apiServiceName }}:{{ .Values.service.apiPort }}
+              value: "http://192.168.49.2:{{ .Values.service.apiPort }}"
             - name: NODE_IP
               valueFrom:
                 fieldRef:
