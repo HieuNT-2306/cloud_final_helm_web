@@ -9,7 +9,18 @@ service:
   nodePort: 30001
   apiPort: 30002
 ingress:
-  enabled: false
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: 192-168-49-2.nip.io
+      paths:
+        - path: /web
+          pathType: Prefix
+  tls:
+    - secretName: tls-secret
+      hosts:
+        - 192-168-49-2.nip.io
 resources: {}
 nodeSelector: {}
 tolerations: []
