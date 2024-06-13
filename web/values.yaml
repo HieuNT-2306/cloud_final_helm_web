@@ -9,18 +9,18 @@ service:
   nodePort: 30001
   apiPort: 30002
 ingress:
-  enabled: true
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-  hosts:
-    - host: vdt.local
-      paths: 
-        - path: /web
-          pathType: ImplementationSpecific
-  tls:
-    - secretName: web-tls
-      hosts:
-        - vdt.local
+  enabled: false
+  # annotations:
+  #   nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  # hosts:
+  #   - host: vdt.local
+  #     paths: 
+  #       - path: /web
+  #         pathType: ImplementationSpecific
+  # tls:
+  #   - secretName: web-tls
+  #     hosts:
+  #       - vdt.local
 resources: {}
 nodeSelector: {}
 tolerations: []
