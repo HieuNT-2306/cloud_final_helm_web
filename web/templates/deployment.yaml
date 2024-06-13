@@ -25,7 +25,7 @@ spec:
         - name: haproxy
           image: {{ .Values.haproxy.image }}
           ports:
-            - containerPort: {{ .Values.haproxy.port }}
+            - containerPort: 443
           volumeMounts:
             - name: haproxy-config
               mountPath: /usr/local/etc/haproxy/haproxy.cfg
@@ -39,3 +39,4 @@ spec:
         - name: haproxy-ssl
           secret:
             secretName: {{ .Values.haproxy.sslSecretName }}
+
