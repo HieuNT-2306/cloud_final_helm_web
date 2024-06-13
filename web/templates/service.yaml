@@ -6,7 +6,9 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 3000
+#     targetPort: 3000
+      protocol: TCP
+      targetPort: 443
       nodePort: {{ .Values.service.nodePort }}
   selector:
     app: {{ include "web.fullname" . }}
