@@ -11,16 +11,16 @@ service:
 ingress:
   enabled: true
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
   hosts:
-    - host: 192-168-49-2.nip.io
-      paths:
+    - host: vdt.local
+      paths: 
         - path: /web
-          pathType: Prefix
+          pathType: ImplementationSpecific
   tls:
-    - secretName: tls-secret
+    - secretName: web-tls
       hosts:
-        - 192-168-49-2.nip.io
+        - vdt.local
 resources: {}
 nodeSelector: {}
 tolerations: []
